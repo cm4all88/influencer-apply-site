@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Influence for Us | Bikini & Intimates Brand</title>
+  <title>Muse Collective | Bikini & Intimates Brand</title>
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
     header { background: #f8bfc4; padding: 2rem; text-align: center; }
@@ -20,13 +21,14 @@
 </head>
 <body>
   <header>
-    <h1>Apply to Be an Influencer</h1>
-    <p>Get selected for a $250–$500 gift card to promote bikinis and intimates from top brands.</p>
+    <h1>Muse Collective – Influencer Application</h1>
+    <p>Get selected for a $250–$500 gift card to promote bikinis and intimates from top brands like SKIMS, Frankies Bikinis, Savage X Fenty, and Sommer Swim.</p>
   </header>
   <main>
-    <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-      <label for="pin">Access PIN</label>
-      <input type="text" name="pin" id="pin" required />
+    <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data" onsubmit="return validatePIN()">
+      <label for="pin">4-Digit Access PIN</label>
+      <input type="password" name="pin" id="pin" pattern="\d{4}" maxlength="4" inputmode="numeric" required />
+      <span id="pin-error" style="color: red; display: none;">Please enter exactly 4 digits.</span>
 
       <label for="name">Full Name</label>
       <input type="text" name="name" id="name" required />
@@ -42,10 +44,10 @@
 
       <label for="brands">Select Brands You're Interested In</label>
       <select name="brands" id="brands" multiple required>
-        <option value="BikiniCo">BikiniCo</option>
-        <option value="SwimLux">SwimLux</option>
-        <option value="Intima">Intima</option>
-        <option value="BareAllure">BareAllure</option>
+        <option value="SKIMS">SKIMS</option>
+        <option value="Frankies Bikinis">Frankies Bikinis</option>
+        <option value="Savage X Fenty">Savage X Fenty</option>
+        <option value="Sommer Swim">Sommer Swim</option>
       </select>
 
       <label for="bio">Short Bio</label>
@@ -64,5 +66,18 @@
       <button type="submit">Submit Application</button>
     </form>
   </main>
+  <script>
+    function validatePIN() {
+      const pinInput = document.getElementById("pin");
+      const errorSpan = document.getElementById("pin-error");
+      const pin = pinInput.value;
+      if (!/^\d{4}$/.test(pin)) {
+        errorSpan.style.display = "block";
+        return false;
+      }
+      errorSpan.style.display = "none";
+      return true;
+    }
+  </script>
 </body>
 </html>
