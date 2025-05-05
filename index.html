@@ -6,7 +6,6 @@
   <title>Muse Collective | Bikini & Intimates Brand</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@400;600&display=swap');
-
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -20,15 +19,30 @@
       padding: 6rem 2rem;
       text-align: center;
       color: #fff;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 1;
     }
     header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-family: 'Playfair Display', serif;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 1rem;
       max-width: 600px;
       margin-left: auto;
@@ -36,21 +50,21 @@
     }
     main {
       padding: 3rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
     .benefits {
       background: #1e1e1e;
       padding: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       border-left: 5px solid #ff4f87;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
     }
     .benefits h2 {
       margin-top: 0;
       color: #ff4f87;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     .benefits ul {
       list-style-type: none;
@@ -61,42 +75,57 @@
       color: #ff4f87;
       margin-right: 0.5rem;
     }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
     form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       background: #1a1a1a;
       padding: 2rem;
-      border-radius: 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
     label {
       font-weight: bold;
       color: #ffb6c1;
     }
     input, textarea, select {
-      padding: 0.75rem;
+      padding: 0.8rem;
       font-size: 1rem;
-      border-radius: 4px;
+      border-radius: 5px;
       border: none;
       background: #2c2c2c;
       color: #f9f9f9;
     }
     input[type="file"] {
       padding: 0.25rem;
-      background: none;
     }
     button {
       padding: 1rem;
-      background: #ff4f87;
+      background: linear-gradient(to right, #ff4f87, #ff85b3);
       border: none;
       color: white;
       font-size: 1.1rem;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
     button:hover {
-      background: #e03a6d;
+      background: linear-gradient(to right, #e03a6d, #ff6f98);
+      transform: scale(1.02);
     }
     #pin-error {
       color: #ff4f87;
@@ -120,23 +149,23 @@
         <li>Be part of a bold, supportive creator collective.</li>
       </ul>
     </section>
+    <section class="gallery">
+      <img src="https://images.unsplash.com/photo-1542060748-10c28b62716d?fit=crop&w=600&q=80" alt="Model 1">
+      <img src="https://images.unsplash.com/photo-1599305445671-57cd3f8a1e69?fit=crop&w=600&q=80" alt="Model 2">
+      <img src="https://images.unsplash.com/photo-1590080877030-2fdbd1b31f6b?fit=crop&w=600&q=80" alt="Model 3">
+    </section>
     <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data" onsubmit="return validatePIN()">
       <label for="pin">4-Digit Access PIN</label>
       <input type="password" name="pin" id="pin" pattern="\d{4}" maxlength="4" inputmode="numeric" required />
       <span id="pin-error" style="display: none;">Please enter exactly 4 digits.</span>
-
       <label for="name">Full Name</label>
       <input type="text" name="name" id="name" required />
-
       <label for="email">Email</label>
       <input type="email" name="email" id="email" required />
-
       <label for="handle">Instagram or TikTok Handle</label>
       <input type="text" name="handle" id="handle" required />
-
       <label for="location">Location (City, State or Country)</label>
       <input type="text" name="location" id="location" required />
-
       <label for="brands">Select Brands You're Interested In</label>
       <select name="brands" id="brands" multiple required>
         <option value="SKIMS">SKIMS</option>
@@ -144,20 +173,15 @@
         <option value="Savage X Fenty">Savage X Fenty</option>
         <option value="Sommer Swim">Sommer Swim</option>
       </select>
-
       <label for="bio">Short Bio</label>
       <textarea name="bio" id="bio" rows="4" required></textarea>
-
       <label for="why">Why should we pick you?</label>
       <textarea name="why" id="why" rows="4" required></textarea>
-
       <label for="portfolio">Upload up to 10 portfolio photos</label>
       <input type="file" name="portfolio" id="portfolio" accept="image/*" multiple required />
-
       <label>
         <input type="checkbox" name="consent" required /> I agree to the terms and conditions.
       </label>
-
       <button type="submit">Submit Application</button>
     </form>
   </main>
