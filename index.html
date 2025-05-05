@@ -5,45 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muse Collective | Bikini & Intimates Brand</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@400;600&display=swap');
+
     body {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #333;
+      background: #0c0c0c;
+      color: #f9f9f9;
     }
     header {
-      background: linear-gradient(to right, #f87d8c, #fbb1bd);
-      padding: 3rem 2rem;
+      background: url('https://images.unsplash.com/photo-1606312613274-f81a1ac4e60f?fit=crop&w=1470&q=80') no-repeat center center;
+      background-size: cover;
+      padding: 6rem 2rem;
       text-align: center;
       color: #fff;
     }
     header h1 {
       margin: 0;
       font-size: 3rem;
-      letter-spacing: 1px;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     main {
-      padding: 2rem;
-      max-width: 800px;
+      padding: 3rem 2rem;
+      max-width: 900px;
       margin: auto;
     }
     .benefits {
-      background: #fff4f6;
+      background: #1e1e1e;
       padding: 2rem;
       margin-bottom: 2rem;
-      border-left: 5px solid #f87d8c;
+      border-left: 5px solid #ff4f87;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     .benefits h2 {
       margin-top: 0;
-      color: #f0526e;
-      font-size: 1.5rem;
+      color: #ff4f87;
+      font-size: 1.8rem;
     }
     .benefits ul {
       list-style-type: none;
@@ -51,29 +58,36 @@
     }
     .benefits li::before {
       content: '★';
-      color: #f87d8c;
+      color: #ff4f87;
       margin-right: 0.5rem;
     }
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
     }
     label {
       font-weight: bold;
+      color: #ffb6c1;
     }
     input, textarea, select {
       padding: 0.75rem;
       font-size: 1rem;
       border-radius: 4px;
-      border: 1px solid #ccc;
+      border: none;
+      background: #2c2c2c;
+      color: #f9f9f9;
     }
     input[type="file"] {
       padding: 0.25rem;
+      background: none;
     }
     button {
       padding: 1rem;
-      background: #f87d8c;
+      background: #ff4f87;
       border: none;
       color: white;
       font-size: 1.1rem;
@@ -82,28 +96,28 @@
       transition: background 0.3s ease;
     }
     button:hover {
-      background: #e66c7a;
+      background: #e03a6d;
     }
     #pin-error {
-      color: red;
+      color: #ff4f87;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Muse Collective – Influencer Application</h1>
-    <p>Get selected for a $250–$500 gift card to promote bikinis and intimates from top brands like SKIMS, Frankies Bikinis, Savage X Fenty, and Sommer Swim.</p>
+    <h1>Muse Collective</h1>
+    <p>Join the movement. Get paid to promote iconic brands like SKIMS, Frankies Bikinis, Savage X Fenty, and Sommer Swim. Influencer rewards from $250 gift cards to $10 per 1,000 views.</p>
   </header>
   <main>
     <section class="benefits">
       <h2>Why Join Muse Collective?</h2>
       <ul>
-        <li>Exclusive invites to collaborate with the most in-demand bikini & intimates brands.</li>
-        <li>Receive a $250–$500 gift card when you're selected to represent a brand.</li>
-        <li>Earn $10 for every 1,000 views your content generates — no cap.</li>
-        <li>Grow your following through features on our high-visibility platforms.</li>
-        <li>Be part of a powerful creator network focused on empowerment & style.</li>
+        <li>Collaborate with elite bikini & intimates brands.</li>
+        <li>Get a $250–$500 gift card when selected.</li>
+        <li>Earn $10 for every 1,000 content views — unlimited potential.</li>
+        <li>Get featured on high-traffic pages and socials.</li>
+        <li>Be part of a bold, supportive creator collective.</li>
       </ul>
     </section>
     <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data" onsubmit="return validatePIN()">
